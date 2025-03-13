@@ -24,7 +24,10 @@ test:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm test
+        run: npm install
 
+      - name: Install dependencies
+        run: yarn install
+        
       - name: Run a basic Node.js script
         run: node testScript.js
