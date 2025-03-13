@@ -7,10 +7,10 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:  # Indentation fixed
+  test:
     name: Running Node Unit Tests Lab08
-    runs-on: ubuntu-latest  # Change to a standard OS (hpwindows-10 is invalid)
-    
+    runs-on: ubuntu-latest  # Ensure this is correct
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -21,11 +21,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install  # Use 'npm install' instead of 'npm test' here
+        run: npm ci  # Faster than npm install
 
       - name: Run tests
-        run: npm test  # Run Jest tests
-
-      - name: Run a basic Node.js script
-        run: node testScript.js  
-
+        run: npm test  # Jest will run all tests
