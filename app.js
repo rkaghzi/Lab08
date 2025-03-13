@@ -7,7 +7,6 @@ app.get("/", (req, res) => {
   res.send("Hello, Event Planner!");
 });
 
-// Add an event creation route
 app.post("/events", (req, res) => {
   const { name, description, date, time } = req.body;
   if (!name || !date || !time) {
@@ -16,4 +15,4 @@ app.post("/events", (req, res) => {
   res.status(201).json({ message: "Event created successfully!" });
 });
 
-module.exports = app; // ✅ Exporting app only, without calling listen()
+module.exports = app; 
