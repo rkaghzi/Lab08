@@ -1,0 +1,30 @@
+name: Node.js CI 
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:  # Indentation fixed
+    name: Running Node Unit Tests Lab08
+    runs-on: ubuntu-latest  # Change to a standard OS (hpwindows-10 is invalid)
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install  # Use 'npm install' instead of 'npm test' here
+
+      - name: Run tests
+        run: npm test  # Run Jest tests
+
+      - name: Run a basic Node.js script
+        run: node testScript.js  
